@@ -1,0 +1,57 @@
+1. create 10 files
+
+ for($i= 0 ; $i -lt 10 ; $i++) {
+ $filename = 'Ganesh' + $i + '.txt'
+ New-Item -Path $filename -ItemType File
+ }
+
+
+2. create 10 folers
+
+for($i=0; $i -lt 10; $i++){
+ $folderName = 'siri'+$i
+ New-Item -path $folderName -ItemType Directory
+ }
+
+
+3. Create 10 folders inside the folders created in step 2
+
+for($i = 0; $i -lt 10 ; $i++) {
+ for($j = 0 ; $j -lt 10 ; $j++){
+ $fold = 'newfolder' + $i + '\'+ 'fold' + $j
+ New-Item -Path $fold -ItemType Directory
+ }
+ }
+
+4. Create 10 files in the 10 folders created in step 3
+
+ for($i = 0 ;$i -lt 10 ; $i++){
+ for($k = 0 ; $k -lt 10 ; $k++){
+ for($g = 0 ; $g -lt 10 ; $g++){
+ $a = 'files' + $g + '.txt'
+ $c = 'newfolder' + $i + '\' + 'fold' + $k + '\' + $a
+ New-Item -Path $c -ItemType File
+ }
+ }
+ }
+
+5. Copy 10 files to each of 10 folders
+
+for($i = 0; $i -lt 10 ; $i++){
+ for($j = 0; $j -lt 10 ; $j++){
+ $shift = 'siri' + $j + '.txt'
+ $to = 'newfolder' + $i
+ Copy-Item -Path $shift -Destination $to
+ }
+ }
+
+6. Remove all the files from the folders
+
+ for($i = 0 ; $i -lt 10 ; $i++){
+ for($j = 0 ; $j -lt 10 ; $j++){
+ for($k = 0 ; $k -lt 10 ; $k++){
+ $del = 'newfolder' + $i + '\' + 'fold' + $j + '\' + 'files' + $k + '.txt'
+ Remove-Item $del
+ }
+ }
+ }
